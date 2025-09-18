@@ -15,9 +15,6 @@
   - `Heartrate3`: 原始心率值 (bpm)
   - `HeartRateInt`: 原始心率值 (bpm)
   - `HeartBeatToggle`: 心跳切换状态
-- 🎨 **彩色日志输出**: 清晰的控制台日志显示
-- 🔄 **优雅关闭**: 支持Ctrl+C安全退出
-- 📝 **详细日志记录**: 支持文件日志记录
 
 ## 系统要求
 
@@ -99,6 +96,19 @@ chmod +x run.sh
 - 轻度运动: 100-140 bpm  
 - 中度运动: 140-170 bpm
 - 高强度运动: 170+ bpm
+
+### 示例Avatar
+
+[Vard](https://twitter.com/VardFree) 制作了该Avatar，你可以使用他的Avatar来测试：
+
+📦 **下载地址**: [Example_Avatar.unitypackage](https://github.com/vard88508/vrc-osc-miband-hrm/releases)
+
+该Avatar使用了 [RED_SIM 的 Simple counter shader](https://patreon.com/posts/simple-counter-62864361) 来显示数字。
+
+**参数配置：**
+- 使用参数: `Heartrate`
+- 数据类型: 浮点(Float)
+- 数值范围: -1.0 (0bpm) 到 1.0 (255bpm)
 
 ## 配置
 
