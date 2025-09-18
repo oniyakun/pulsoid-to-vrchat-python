@@ -91,12 +91,6 @@ chmod +x run.sh
 - **数值显示**: 使用 `Heartrate3` 或 `HeartRateInt` (原始bpm值)，适合在UI中显示具体数值
 - **心跳效果**: 使用 `HeartBeatToggle` (布尔值)，适合制作闪烁或跳动效果
 
-**典型心率范围参考：**
-- 静息心率: 60-100 bpm
-- 轻度运动: 100-140 bpm  
-- 中度运动: 140-170 bpm
-- 高强度运动: 170+ bpm
-
 ### 示例Avatar
 
 [Vard](https://twitter.com/VardFree) 制作了该Avatar，你可以使用他的Avatar来测试：
@@ -157,16 +151,3 @@ pulsoid-to-vrchat-python/
 ├── run.sh              # Linux/macOS启动脚本
 └── README.md           # 说明文档
 ```
-
-## 与Node.js版本的区别
-
-- ✅ 更好的错误处理和恢复机制
-- ✅ 彩色日志输出
-- ✅ 自动虚拟环境管理
-- ✅ 跨平台启动脚本
-- ✅ 更清晰的代码结构
-- ✅ 详细的文档说明
-
-## 许可证
-
-本项目基于原Node.js版本重新实现，保持相同的功能和兼容性。
