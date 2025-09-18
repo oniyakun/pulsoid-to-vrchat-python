@@ -8,10 +8,13 @@
 - 🎮 **VRChat OSC集成**: 将心率数据实时发送到VRChat Avatar参数
 - 🔐 **安全的认证管理**: 自动保存和读取Pulsoid认证token
 - 📊 **多种心率参数**: 
-  - `HeartRate`: 原始心率值 (bpm)
-  - `HeartRateNormalized`: 归一化心率值 (0.0-1.0)
-  - `HeartRateStatus`: 心率状态 (0=低, 1=正常, 2=高)
-  - `PulsoidConnected`: 连接状态
+  - `Heartrate`: 归一化心率值 (-1.0 到 1.0)
+  - `HeartRateFloat`: 归一化心率值 (-1.0 到 1.0)
+  - `Heartrate2`: 归一化心率值 (0.0 到 1.0)
+  - `HeartRateFloat01`: 归一化心率值 (0.0 到 1.0)
+  - `Heartrate3`: 原始心率值 (bpm)
+  - `HeartRateInt`: 原始心率值 (bpm)
+  - `HeartBeatToggle`: 心跳切换状态
 - 🎨 **彩色日志输出**: 清晰的控制台日志显示
 - 🔄 **优雅关闭**: 支持Ctrl+C安全退出
 - 📝 **详细日志记录**: 支持文件日志记录
@@ -70,10 +73,32 @@ chmod +x run.sh
 
 在VRChat中，你可以使用以下OSC参数：
 
-- `/avatar/parameters/HeartRate` (int): 心率值 (bpm)
-- `/avatar/parameters/HeartRateNormalized` (float): 归一化心率 (0.0-1.0)
-- `/avatar/parameters/HeartRateStatus` (int): 心率状态 (0=低, 1=正常, 2=高)
-- `/avatar/parameters/PulsoidConnected` (bool): 连接状态
+### 归一化心率参数 (Float类型)
+- `/avatar/parameters/Heartrate` (float): 归一化心率值，范围 -1.0 到 1.0 (计算公式: heart_rate / 127 - 1)
+- `/avatar/parameters/HeartRateFloat` (float): 同上，别名参数
+- `/avatar/parameters/Heartrate2` (float): 归一化心率值，范围 0.0 到 1.0 (计算公式: heart_rate / 255)
+- `/avatar/parameters/HeartRateFloat01` (float): 同上，别名参数
+
+### 原始心率参数 (Integer类型)
+- `/avatar/parameters/Heartrate3` (int): 原始心率值 (bpm)
+- `/avatar/parameters/HeartRateInt` (int): 同上，别名参数
+
+### 心跳状态参数 (Boolean类型)
+- `/avatar/parameters/HeartBeatToggle` (bool): 心跳切换状态，每次心跳时切换true/false
+
+### 使用建议
+
+**选择合适的参数类型：**
+- **动画控制**: 使用 `Heartrate2` 或 `HeartRateFloat01` (0.0-1.0范围)，适合控制动画强度
+- **颜色变化**: 使用 `Heartrate` 或 `HeartRateFloat` (-1.0到1.0范围)，可以实现双向颜色渐变
+- **数值显示**: 使用 `Heartrate3` 或 `HeartRateInt` (原始bpm值)，适合在UI中显示具体数值
+- **心跳效果**: 使用 `HeartBeatToggle` (布尔值)，适合制作闪烁或跳动效果
+
+**典型心率范围参考：**
+- 静息心率: 60-100 bpm
+- 轻度运动: 100-140 bpm  
+- 中度运动: 140-170 bpm
+- 高强度运动: 170+ bpm
 
 ## 配置
 
